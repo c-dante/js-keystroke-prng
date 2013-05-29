@@ -1,0 +1,86 @@
+<!--
+
+	Usage Example for js-keystroke-prng
+	
+	Author: Chris Federici (cfederic@stevens.edu)
+	
+	Description:
+					Exists as a sample implementation of the js-keystroke-prng project.
+					Instructions on how to implement different components are located
+					under the /docs folder.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en=US">
+	<head>
+		<meta charset="utf-8" />
+		
+		<title>Human-mediated generation of random numbers</title>
+		
+		<link rel="stylesheet" type="text/css" href="main.css">
+		
+		<!-- Include external libraries -->
+		<script type="text/javascript" src="../libs/hmac-sha1.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		
+		<!-- Pre-req for textgen.js -->
+		<script type="text/javascript" src="../src/util.js"></script>
+		
+		<!-- Required For PRNG Plugin -->
+		<script type="text/javascript" src="../src/prng.js"></script>
+		<script type="text/javascript" src="../src/textgen.js"></script>
+		
+		<!-- Control of layout and components -->
+		<script type="text/javascript" src="main.js"></script>
+	</head>
+
+	<body>
+		<div id="content">
+			<noscript>
+				JavaScript is disabled. JavaScript is required to view this example.
+			</noscript>
+			
+			<div id="intro">
+				<h1>JavaScript, Client-side PRNG Implementation</h1>
+			</div>
+
+			<div id="textcap">
+				<h1>To begin, click the button below.</h1>
+				<span id="PRNG_EXAMPLE">
+					<button onClick="setFormToStart();">Reset Application</button>
+					<button onClick="newNumbers();">New Number</button>
+					<br />
+					<span id="prngOutput"></span>
+					<br />
+				</span>
+				
+				<button id="Start" onClick="startText();">Generate Text</button>
+				
+				<div id="input_area">
+					<p id="text_output"></p>
+					<input id="tf" autocomplete="off" type="text" />
+					<br />
+					<button id="btn" onClick="collectionComplete();">Click When Done</button>
+				</div>
+			</div>
+			
+			<div id="blurb">
+				<h1>What is all this?</h1>
+				<p>One problem with authentication over the internet is the quality of pseudo-random numbers.
+				Hardware on the client machine cannot be trusted to exist or be sufficently random.
+				Using an external resource would give more avenues for an attacker to listen in.</p>
+				<p>Ruling out specialized hardware and external resources, the randomness must come from the client somehow.
+				Using the inter-keystroke delay (time between pressing keys) as a source of entropy, a sufficiently random and
+				client side PRNG can be created. The requirements for use are simply a JavaScript enabled browser and a keyboard.</p>
+				<p>A benefit of using JavaScript is that any client can see the code behind the program. Nothing is hidden or obfuscated.</p>
+				<div class="textset">
+					<small>This example is from <a href="https://code.google.com/p/js-keystroke-prng/">https://code.google.com/p/js-keystroke-prng/</a></small>
+					<small>JavaScript cryptography packages from <a href="https://code.google.com/p/crypto-js/">https://code.google.com/p/crypto-js/</a></small>
+					<small>Programmed and designed by Chris Federici &lt;cfederic@stevens.edu&gt;</small>
+					<small>Web application based on a project advised by prof. A. Nicolosi &lt;nicolosi@cs.stevens.edu&gt;</small>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
